@@ -42,3 +42,13 @@ export const getPost = async (user, slug) => {
     const res = await axios.request(options)
     return (res.data)
 }
+
+export const getComents = async (user, slug) => {
+    const options = {
+        method: 'GET',
+        url: `${baseURL}/contents/${user}/${slug}/children`,
+    };
+
+    const res = await axios.request(options)
+    return res.data
+}
