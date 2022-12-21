@@ -17,7 +17,7 @@ export const CreateSession = async (email, password) => {
         key: 'session',
         value: JSON.stringify(res.data)
     })
-    return
+    return res.status
 }
 
 

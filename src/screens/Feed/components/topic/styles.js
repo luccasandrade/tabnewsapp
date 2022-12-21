@@ -4,10 +4,14 @@ export const styles = StyleSheet.create({
     container: {
         padding: 15,
         borderColor: 'gray',
-        borderWidth: 1
+        borderWidth: 1,
+        margin: 10,
+        backgroundColor: 'aliceblue'
     },
     upperContainer: {
-        flexDirection: 'row'
+        flexDirection: 'row',
+        justifyContent: 'flex-start',
+        paddingHorizontal: 10
     },
     lowerContainer: {
         flexDirection: 'row',

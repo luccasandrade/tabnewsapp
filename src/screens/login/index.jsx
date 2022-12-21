@@ -1,14 +1,31 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { TouchableOpacity, Text, TextInput, View } from 'react-native'
 import { styles } from './styles'
 import { CreateSession } from '../../services/api'
+import { Storage } from "expo-storage";
 
-const Login = () => {
+const Login = ({navigation}) => {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
 
-    const handleLogin = () => {
-        CreateSession(email, password)
+    useEffect(() => {
+        ( async()=>{
+            const storageData = await Storage.getItem({key: 'session',})
+            if(storageData){
+                const jsonData = JSON.parse(storageData)
+                const now = new Date()
+                const tokenDate = new Date(jsonData.expires_at)
+                tokenDate.getTime()>now.getTime()?navigation.navigate('feed'):''
+            }
+        })()    
+    }, [])
+    
+
+    const handleLogin = async () => {
+        const status = await CreateSession(email, password)
+        console.log(status)
+        console.log(typeof(status))
+        status===201?navigation.navigate('feed'):''
     }
 
     return (

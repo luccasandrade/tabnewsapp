@@ -1,11 +1,14 @@
 import React from 'react'
 import { useEffect, useState } from 'react'
-import { TouchableOpacity, Text, View, ScrollView } from 'react-native'
+import { TouchableOpacity, Text, View, ScrollView, useWindowDimensions} from 'react-native'
 import { Topic } from './components/topic/index.jsx'
-import { styles } from './styles'
+import { styles, feedContainer } from './styles'
 import { getFeed } from '../../services/api.js'
 
+
+
 const Feed = ({navigation}) => {
+    const screenSize = useWindowDimensions().width
     const [feed, setFeed] = useState([])
     const [pageNum, setPageNum] = useState(1)
     const [strategyState, setStrategyState] = useState('relevant')
@@ -51,7 +54,7 @@ const Feed = ({navigation}) => {
                     <Text style={styles.topTagsTxt}>Mais antigas</Text>
                 </TouchableOpacity>
             </View>
-            <ScrollView style={styles.feedContainer}>
+            <ScrollView style={feedContainer(screenSize).feedContainer}>
                 {feed.map((topic, index) => <Topic navigation={navigation} key={index} topic={topic} index={index} pageNum={pageNum} />)}
                 <View style={styles.pageBtnsContainer} >
                     <TouchableOpacity onPress={() => handlePageNum('prev')}><Text style={styles.pageBtnsTxt}>{`<< Anterior`}</Text></TouchableOpacity>

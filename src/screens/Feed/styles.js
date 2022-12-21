@@ -1,4 +1,5 @@
-import { StyleSheet } from "react-native";
+import { StyleSheet, useWindowDimensions } from "react-native";
+
 
 export const styles = StyleSheet.create({
     container: {
@@ -6,30 +7,43 @@ export const styles = StyleSheet.create({
         backgroundColor: '#fff',
         alignItems: 'flex-start',
         justifyContent: 'center',
+        alignItems: 'center'
     },
     header: {
         flexDirection: 'row',
+        backgroundColor: 'black',
     },
     topTags: {
-        margin: 15
+        padding: 15,
+        borderColor: 'white',
+        borderWidth: 1
     },
     topTagsTxt: {
         fontSize: 20,
-        fontWeight: '500'
+        fontWeight: '500',
+        color: 'white',
     },
-    feedContainer: {
-        backgroundColor: 'aliceblue',
-        width: 400
-    },
+
     pageBtnsTxt: {
-        fontSize: 22,
+        fontSize: 20,
+        fontWeight: '500',
+        color: 'white',
+        padding: 15,
         marginVertical: 5,
-        marginHorizontal: 10
+        borderColor: 'white',
+        borderWidth: 1
     },
     pageBtnsContainer: {
         flexDirection: 'row',
         justifyContent: 'center',
-        marginVertical: 5
+        backgroundColor: 'black',
     }
 })
 
+
+export const feedContainer = (screenSize) => StyleSheet.create({
+    feedContainer: {
+        backgroundColor: 'white',
+        width: screenSize,
+    },
+})

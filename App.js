@@ -14,8 +14,8 @@ export default function App() {
     <NavigationContainer>
       <StatusBar hidden={true} />
       <Stack.Navigator>
-        <Stack.Screen name="feed" component={Feed} options={styleOptions} />
         <Stack.Screen name="login" component={Login} options={styleOptions} />
+        <Stack.Screen name="feed" component={Feed} options={styleOptions} />
         <Stack.Screen name="singlepost" component={SinglePost} options={styleOptions} />
       </Stack.Navigator>
     </NavigationContainer>
