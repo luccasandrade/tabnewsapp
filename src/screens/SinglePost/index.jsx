@@ -1,38 +1,44 @@
-import { TouchableOpacity, Text, TextInput, View, SafeAreaView, ScrollView } from 'react-native'
+import {
+    TouchableOpacity,
+    Text,
+    TextInput,
+    View,
+    SafeAreaView,
+    ScrollView,
+} from 'react-native'
 import { styles } from './styles'
-import Markdown from 'react-native-showdown';
-import { useEffect, useState } from 'react';
-import { getComents } from '../../services/api';
-import { Coments } from './coments';
-const SinglePost = ({route}) => {
-    const [visible, setVisible] = useState (false)
-    const {post} = route.params
+import Markdown from 'react-native-showdown'
+import { useEffect, useState } from 'react'
+import { getComments } from '../../services/api'
+import { Comments } from './comments'
+const SinglePost = ({ route }) => {
+    const [visible, setVisible] = useState(false)
+    const { post } = route.params
     const slug = post.slug
     const user = post.owner_username
-    const [coments, setComents] = useState([])
+    const [comments, setComments] = useState([])
     useEffect(() => {
-        (async () => {
-            const allcoments = await getComents(user,slug)
-            setComents(allcoments)
-            })()
+        ;(async () => {
+            const allcomments = await getComments(user, slug)
+            setComments(allcomments)
+        })()
     }, [])
 
-
-    
-    async (user,slug) => {
-        comentsArray = await getComents(user,slug)
-        console.log(comentsArray)
-    }
- 
-    return(
+    return (
         <View style={styles.container}>
-            <Text style={styles.title} >{post.title}</Text>
+            <Text style={styles.title}>{post.title}</Text>
             <Markdown style={styles.markdown} markdown={post.body}></Markdown>
             <TouchableOpacity onPress={() => setVisible(!visible)}>
-                <Text style={styles.title}>{visible?"↓ Comentários:":'↑ Comentários:'}</Text>      
+                <Text style={styles.title}>
+                    {visible ? '↓ Comentários:' : '↑ Comentários:'}
+                </Text>
             </TouchableOpacity>
-            <ScrollView style={visible?styles.comentsContainer:styles.hidden}>
-                {(coments.map((coment)=> <Coments coment={coment}/>))}                
+            <ScrollView
+                style={visible ? styles.commentsContainer : styles.hidden}
+            >
+                {comments.map((comment, index) => (
+                    <Comments key={index} comment={comment} />
+                ))}
             </ScrollView>
         </View>
     )

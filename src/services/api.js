@@ -43,7 +43,7 @@ export const getPost = async (user, slug) => {
     return (res.data)
 }
 
-export const getComents = async (user, slug) => {
+export const getComments = async (user, slug) => {
     const options = {
         method: 'GET',
         url: `${baseURL}/contents/${user}/${slug}/children`,

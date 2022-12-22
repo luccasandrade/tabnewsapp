@@ -14,15 +14,15 @@ export const Topic = ({topic, index, pageNum, navigation}) => {
         navigation.navigate('singlepost',{post: post})
     }
     return (
-        <View style={styles.container}>
-            <TouchableOpacity onPress={() => enterTopic(username,slug)}>
+        <View >
+            <TouchableOpacity style={styles.container} onPress={() => enterTopic(username,slug)}>
                 <View style={styles.upperContainer}>
                     <Text style={styles.title}>{(pageNum - 1)*10 + (index+1)}. </Text>
                     <Text style={styles.title}>{title}</Text>
                 </View>
                 <View style={styles.lowerContainer}>
-                    <Text style={styles.lowerTxt}>{tabcoins} TabCoins</Text>
-                    <Text style={styles.lowerTxt}>{username}</Text>
+                    <Text style={styles.username}>{username}</Text>
+                    <Text style={styles.tabcoins}>{tabcoins} TabCoins</Text>
                     <Text style={styles.lowerTxt}>{coments} Comentários</Text>
                 </View>
             </TouchableOpacity>

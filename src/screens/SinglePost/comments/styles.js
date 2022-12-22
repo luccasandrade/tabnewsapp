@@ -18,5 +18,9 @@ export const styles = StyleSheet.create({
     tabcoins: {
         marginHorizontal: 10,
         color: 'yellowgreen'
-    }
+    },
+    innercomments: {
+        marginTop: -13,
+        marginLeft: 40
+    },
 })

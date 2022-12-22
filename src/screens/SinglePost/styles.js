@@ -15,7 +15,7 @@ export const styles = StyleSheet.create({
         flex: 1,
         margin: 10
     },
-    comentsContainer: {
+    commentsContainer: {
         flex: 0.5
     },
     hidden: {
