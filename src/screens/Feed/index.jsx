@@ -174,11 +174,7 @@ const Feed = ({ navigation }) => {
                         onPress={() => handlePageNum('prev')}
                     >
                         <Text style={styles(colors).pageBtnsTxt}>
-                            <IONICONS
-                                name="arrow-back"
-                                color={colors.primary}
-                                size={20}
-                            />
+                            <IONICONS name="arrow-back" size={20} />
                             {`Anterior`}
                         </Text>
                     </TouchableOpacity>
@@ -188,11 +184,7 @@ const Feed = ({ navigation }) => {
                     >
                         <Text style={styles(colors).pageBtnsTxt}>
                             {`Próxima`}
-                            <IONICONS
-                                name="arrow-forward"
-                                color={colors.primary}
-                                size={20}
-                            />
+                            <IONICONS name="arrow-forward" size={20} />
                         </Text>
                     </TouchableOpacity>
                 </View>
