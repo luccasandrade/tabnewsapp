@@ -1,12 +1,12 @@
 import { StyleSheet } from "react-native";
 
-export const styles = StyleSheet.create({
+export const styles = (colors) => StyleSheet.create({
     container: {
         padding: 15,
-        borderColor: 'gray',
+        borderColor: colors.border,
         borderWidth: 1,
         margin: 10,
-        backgroundColor: 'aliceblue',
+        backgroundColor: colors.background,
         height: 120,
         // justifyContent: 'space-between'
     },
@@ -24,18 +24,20 @@ export const styles = StyleSheet.create({
     title: {
         fontSize: 18,
         fontWeight: '400',
+        color: colors.primary
     },
     username: {
         marginRight: 5,
-        color: 'grey',
+        color: colors.details,
         fontWeight: 'bold',
     },
     lowerTxt: {
-        marginRight: 5
+        marginRight: 5,
+        color: colors.primary
     },
     tabcoins: {
         marginRight: 5,
-        color: 'green'
+        color: colors.notification
 
     }
 

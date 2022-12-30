@@ -1,22 +1,27 @@
 import { StyleSheet } from "react-native";
 
-export const styles = StyleSheet.create({
+export const styles = (colors) => StyleSheet.create({
     container: {
         flex: 1
     },
     title: {
         fontWeight: 'bold',
         color: 'white',
-        backgroundColor: 'black',
+        backgroundColor: colors.details,
         fontSize: 25,
         padding: 15,
+        borderBottomWidth: 2,
+        borderBottomColor: colors.border
     },
     markdown: {
         flex: 1,
-        margin: 10
+        marginHorizontal: 10
+    },
+    commentsTitle: {
+        fontSize: 20,
     },
     commentsContainer: {
-        flex: 0.5
+        flex: 0,
     },
     hidden: {
         display: 'none'

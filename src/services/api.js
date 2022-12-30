@@ -29,7 +29,6 @@ export const getFeed = async (page, perPage, strategy) => {
     };
 
     const res = await axios.request(options)
-    console.log('pass')
     return (res.data)
 }
 
